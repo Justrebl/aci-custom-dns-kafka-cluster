@@ -6,13 +6,17 @@ on:
     paths:
       - "iac/*.yaml"
   workflow_dispatch:
+    inputs:
+      environment:
+        required: true
+        type: string
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     environment: 
       name: ${{ inputs.environment }}
-      
+
     steps:
       #Checkout the repo
       - name: "Checkout GitHub Action"
