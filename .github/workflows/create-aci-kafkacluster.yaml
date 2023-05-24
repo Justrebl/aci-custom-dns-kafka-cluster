@@ -1,8 +1,6 @@
 name: Push Azure Container Instance Group template to Azure
 
 on:
-  push: 
-      branches: [Dev]
   pull_request:
     branches: [master]
     paths:
