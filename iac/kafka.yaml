@@ -79,7 +79,7 @@ properties:
     nameServers:
       - 10.0.0.10 # DNS Server 1
       - 10.0.0.11 # DNS Server 2
-    searchDomains: private.thld.com # DNS search suffix
+    searchDomains: {DnsSearchDomain} # DNS search suffix
   osType: Linux
   restartPolicy: Always
   ipAddress:
@@ -94,12 +94,12 @@ properties:
       - protocol: tcp
         port: 9094
   subnetIds:
-    - id: /subscriptions/{SubID}}/resourceGroups/{RG}/providers/Microsoft.Network/virtualNetworks/{VNet}/subnets/{Subnet}
+    - id: {SubnetId}
       name: kafkasubnet
   volumes:
     - name: storage
       azureFile:
         shareName: kafka-data
         readOnly: false
-        storageAccountName: {StorageAccount}
-        storageAccountKey: xxx
+        storageAccountName: satrashtodelete
+        storageAccountKey: {StorageAccountKey}
