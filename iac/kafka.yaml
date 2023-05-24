@@ -79,7 +79,7 @@ properties:
     nameServers:
       - 10.0.0.10 # DNS Server 1
       - 10.0.0.11 # DNS Server 2
-    searchDomains: $DnsSearchDomain # DNS search suffix
+  searchDomains: ${{ secrets.DNSSEARCHDOMAIN }} # DNS search suffix
   osType: Linux
   restartPolicy: Always
   ipAddress:
@@ -94,7 +94,7 @@ properties:
       - protocol: tcp
         port: 9094
   subnetIds:
-    - id: $SubnetId
+    - id: ${{ secrets.SUBNETID }}
       name: kafkasubnet
   volumes:
     - name: storage
@@ -102,4 +102,4 @@ properties:
         shareName: kafka-data
         readOnly: false
         storageAccountName: satrashtodelete
-        storageAccountKey: $StorageAccountKey
+        storageAccountKey: ${{ secrets.STORAGEACCOUNTKEY }}

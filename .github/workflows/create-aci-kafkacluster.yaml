@@ -18,26 +18,47 @@ jobs:
 
       #Replace the secrets in the template
       #Not a good practice and full fledge IAC solutions as bicep and terraform should be used
-      - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v3
+      - name: replace secret
+        uses: jwsi/secret-parser@v1
         with:
-          find: "$SubnetId"
-          replace: "${{secrets.SUBNETID}}"
-          include: "**kafka.yaml"
+          filename: "iac/kafka.yaml"
+          secret-name: SUBNETID
+          secret-value: ${{secrets.SUBNETID}}
 
-      - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v3
+      - name: replace secret
+        uses: jwsi/secret-parser@v1
         with:
-          find: "$StorageAccountKey"
-          replace: "${{secrets.STORAGEACCOUNTKEY}}"
-          include: "**kafka.yaml"
+          filename: "iac/kafka.yaml"
+          secret-name: STORAGEACCOUNTKEY
+          secret-value: ${{secrets.STORAGEACCOUNTKEY}}
 
-      - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v3
+      - name: replace secret
+        uses: jwsi/secret-parser@v1
         with:
-          find: "$DnsSearchDomain"
-          replace: "${{secrets.DNSSEARCHDOMAIN}}"
-          include: "**kafka.yaml"
+          filename: "iac/kafka.yaml"
+          secret-name: DNSSEARCHDOMAIN
+          secret-value: ${{secrets.DNSSEARCHDOMAIN}}
+
+      # - name: Find and Replace
+      #   uses: jacobtomlinson/gha-find-replace@v3
+      #   with:
+      #     find: "$SubnetId"
+      #     replace: "${{secrets.SUBNETID}}"
+      #     include: "**kafka.yaml"
+
+      # - name: Find and Replace
+      #   uses: jacobtomlinson/gha-find-replace@v3
+      #   with:
+      #     find: "$StorageAccountKey"
+      #     replace: "${{secrets.STORAGEACCOUNTKEY}}"
+      #     include: "**kafka.yaml"
+
+      # - name: Find and Replace
+      #   uses: jacobtomlinson/gha-find-replace@v3
+      #   with:
+      #     find: "$DnsSearchDomain"
+      #     replace: "${{secrets.DNSSEARCHDOMAIN}}"
+      #     include: "**kafka.yaml"
 
       #Connect to azure and set the local credentials in action context
       - name: "Login via Azure CLI"
