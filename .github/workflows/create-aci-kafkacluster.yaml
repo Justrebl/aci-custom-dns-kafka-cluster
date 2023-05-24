@@ -5,6 +5,7 @@ on:
     branches: [master]
     paths:
       - "iac/*.yaml"
+
   workflow_dispatch:
     inputs:
       environment:
@@ -23,21 +24,21 @@ jobs:
 
       #Replace the secrets in the template
       #Not a good practice and full fledge IAC solutions as bicep and terraform should be used
-      - name: replace secret
+      - name: replace secret subnetId
         uses: jwsi/secret-parser@v1
         with:
           filename: "iac/kafka.yaml"
           secret-name: SUBNETID
           secret-value: ${{secrets.SUBNETID}}
 
-      - name: replace secret
+      - name: replace secret Storage Account Key
         uses: jwsi/secret-parser@v1
         with:
           filename: "iac/kafka.yaml"
           secret-name: STORAGEACCOUNTKEY
           secret-value: ${{secrets.STORAGEACCOUNTKEY}}
 
-      - name: replace secret
+      - name: replace secret DNS Search Domain
         uses: jwsi/secret-parser@v1
         with:
           filename: "iac/kafka.yaml"
