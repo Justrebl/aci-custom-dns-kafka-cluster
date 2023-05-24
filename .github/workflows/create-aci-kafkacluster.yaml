@@ -2,8 +2,7 @@ name: Push Azure Container Instance Group template to Azure
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
     paths:
       - "iac/*.yaml"
   workflow_dispatch:
@@ -11,6 +10,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: production
+    concurrency: production
     steps:
       #Checkout the repo
       - name: "Checkout GitHub Action"
