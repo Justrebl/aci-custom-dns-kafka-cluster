@@ -10,8 +10,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: production
-    concurrency: production
     steps:
       #Checkout the repo
       - name: "Checkout GitHub Action"
