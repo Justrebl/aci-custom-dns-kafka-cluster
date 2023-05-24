@@ -79,7 +79,7 @@ properties:
     nameServers:
       - 10.0.0.10 # DNS Server 1
       - 10.0.0.11 # DNS Server 2
-  searchDomains: ${{ secrets.DNSSEARCHDOMAIN }} # DNS search suffix
+    searchDomains: ${{ secrets.DNSSEARCHDOMAIN }} # DNS search suffix
   osType: Linux
   restartPolicy: Always
   ipAddress:
