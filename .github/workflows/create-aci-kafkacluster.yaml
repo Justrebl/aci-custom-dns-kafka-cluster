@@ -8,8 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        required: true
-        type: string
+        type: environment
 
 jobs:
   build-and-deploy:
