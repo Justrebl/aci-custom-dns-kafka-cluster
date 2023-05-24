@@ -3,7 +3,7 @@ name: Push Azure Container Instance Group template to Azure
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - "iac/*.yaml"
   workflow_dispatch:
