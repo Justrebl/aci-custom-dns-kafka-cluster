@@ -77,4 +77,4 @@ jobs:
         with:
           azcliversion: 2.48.1
           inlineScript: |
-            az container create --resource-group ${{ secrets.RESOURCEGROUP }} --file kafka.yaml
+            az container create --resource-group ${{ secrets.RESOURCEGROUP }} --file iac/kafka.yaml
