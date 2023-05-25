@@ -45,27 +45,6 @@ jobs:
           secret-name: DNSSEARCHDOMAIN
           secret-value: ${{secrets.DNSSEARCHDOMAIN}}
 
-      # - name: Find and Replace
-      #   uses: jacobtomlinson/gha-find-replace@v3
-      #   with:
-      #     find: "$SubnetId"
-      #     replace: "${{secrets.SUBNETID}}"
-      #     include: "**kafka.yaml"
-
-      # - name: Find and Replace
-      #   uses: jacobtomlinson/gha-find-replace@v3
-      #   with:
-      #     find: "$StorageAccountKey"
-      #     replace: "${{secrets.STORAGEACCOUNTKEY}}"
-      #     include: "**kafka.yaml"
-
-      # - name: Find and Replace
-      #   uses: jacobtomlinson/gha-find-replace@v3
-      #   with:
-      #     find: "$DnsSearchDomain"
-      #     replace: "${{secrets.DNSSEARCHDOMAIN}}"
-      #     include: "**kafka.yaml"
-
       #Connect to azure and set the local credentials in action context
       - name: "Login via Azure CLI"
         uses: azure/login@v1
